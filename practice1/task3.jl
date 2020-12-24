@@ -8,13 +8,15 @@ function mark_field(r::Robot)
         if (!isborder(r, West))
             move!(r, West)
         end
-        putmarkers!(r, inverse(side))
-        if (!isborder(r, West))
-            move!(r, West)
-        end
+        side = inverse(side)
+    end
+
+    if (!ismarker(r))
+        putmarkers!(r, side)
     end
 
     moves!(r, Ost)
+    moves!(r, Sud)
     moves_back(r, Nord, num_sud)
     moves_back(r, West, num_ost)
     
