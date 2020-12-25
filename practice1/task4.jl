@@ -13,7 +13,6 @@ function mark_field(r::Robot)
         end
     end
 
-    steps += 1
     putmarkers!(r, side, steps)
     while (!isborder(r, Sud))
         move!(r, Sud)
